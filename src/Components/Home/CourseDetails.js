@@ -3,7 +3,7 @@ import React from 'react';
 const CourseDetails = ({ course }) => {
     const { name, image, price, numberOfClass, test } = course
     return (
-        <div className='border-4 rounded-3xl border-[#0bc8ff]'>
+        <div className='border-2 rounded-2xl border-[#0bc8ff]'>
             <div class="card shadow-xl">
                 <img className='w-full' src={image} alt="Shoes" />
                 <div class="card-body">
