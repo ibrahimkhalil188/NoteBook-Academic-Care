@@ -1,6 +1,4 @@
 import React from 'react';
-import image from '../../Assets/Image/background.jpg'
-import Success from './Success';
 const Admission = () => {
     return (
         <div className='border-4 border-black relative my-24' style={{
@@ -11,7 +9,7 @@ const Admission = () => {
                 <h1 className='text-5xl uppercase font-serif font-bold'> Admission going on</h1>
                 <h2 className='text-2xl text-left uppercase mx-6 font-serif mt-24 font-b '>Most of the student don't get change because of the best guide line and mentors. so we believe Your deserve the best education</h2>
 
-                <button className='btn btn-primary mt-12' >Admission now</button>
+                <button className='btn btn-primary my-12 btn-lg' >Admission now</button>
             </div>
 
 
