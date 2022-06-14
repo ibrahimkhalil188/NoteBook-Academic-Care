@@ -4,7 +4,22 @@ import heroImage from '../../Assets/Image/heroImage.png'
 import Navbar from '../Shared/Navbar';
 const HeroSection = () => {
     return (
-        <div style={{ backgroundImage: `url(${banner})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }} className='text-white h-screen'>
+        <div>
+            <div style={{ backgroundImage: `url(${banner})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }} className='text-white'>
+                <Navbar></Navbar>
+                <div class="hero min-h-screen">
+                    <div class="hero-content flex-col lg:flex-row-reverse">
+                        <img src={heroImage} alt="" class=" lg:w-[1350px] lg:mr-12 rounded-lg shadow-2xl" />
+                        <div className='m-4 lg:ml-24'>
+                            <h1 class="text-2xl lg:text-6xl lg:w-1/2 font-serif flex-shrink-0 font-bold uppercase leading-lose">empowering students to become scholars</h1>
+                            <button class="btn btn-primary mt-6">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {/* <div style={{ backgroundImage: `url(${banner})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }} className='text-white h-screen'>
             <Navbar></Navbar>
             <div class="hero min-h-screen">
                 <div class="hero-content flex-col flex-shrink-0 lg:flex-row-reverse">
@@ -16,7 +31,11 @@ const HeroSection = () => {
                     </div>
                 </div>
             </div>
+        </div> */}
         </div>
+
+
+
     );
 };
 
