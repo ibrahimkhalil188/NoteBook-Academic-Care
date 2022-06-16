@@ -2,10 +2,10 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "../Shared/Carusel.css";
-import { Pagination } from "swiper";
 import { FaQuoteLeft } from 'react-icons/fa'
 
 const Success = () => {
@@ -23,6 +23,12 @@ const Success = () => {
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={10}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    navigation={true}
+                    modules={[Autoplay, Pagination, Navigation]}
                     pagination={{
                         clickable: true
                     }}
@@ -40,7 +46,6 @@ const Success = () => {
                             spaceBetween: 40
                         }
                     }}
-                    modules={[Pagination]}
                     className="mySwiper"
                 >
 
