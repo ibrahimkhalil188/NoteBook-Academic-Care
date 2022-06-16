@@ -6,7 +6,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "../Shared/Carusel.css";
 import { Pagination } from "swiper";
-import { GiBookmarklet } from 'react-icons/gi'
 import { FaQuoteLeft } from 'react-icons/fa'
 
 const Success = () => {
@@ -19,7 +18,6 @@ const Success = () => {
     return (
         <div className='relative mx-4 lg:mx-0'>
             <h1 className='text-3xl lg:text-5xl text-center my-16 uppercase font-serif '>success story</h1>
-            <GiBookmarklet className='text-8xl absolute bottom-[-100px] left-[20%] lg:left-[30%] rotate-12 text-[#03225e]'></GiBookmarklet>
             <FaQuoteLeft className='text-5xl lg:text-9xl absolute top-[-50px] right-6 text-[#03225e]'></FaQuoteLeft>
             <>
                 <Swiper

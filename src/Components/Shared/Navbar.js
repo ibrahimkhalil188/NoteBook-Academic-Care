@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -14,7 +15,7 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <a class="btn btn-ghost normal-case text-xl">NAC</a>
+                    <Link to="/" class="btn btn-ghost normal-case text-xl">NAC</Link>
 
                 </div>
                 <div class="navbar-end hidden lg:flex">
