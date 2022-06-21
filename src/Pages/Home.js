@@ -38,6 +38,7 @@ const Home = () => {
                 <Outlet></Outlet>
             </div>
             <Books group={group}></Books>
+
         </div>
     );
 };
