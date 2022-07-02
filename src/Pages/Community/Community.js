@@ -1,9 +1,17 @@
 import React from 'react';
+import Header from '../../Components/Community/Header';
 
 const Community = () => {
     return (
         <div>
-            This is for student post and qsn
+            <div>
+                <div>
+                    <Header></Header>
+                </div>
+                <div>
+
+                </div>
+            </div>
         </div>
     );
 };

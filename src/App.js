@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import AdmissionForm from "./Components/Home/AdmissionForm";
 import Commerce from "./Components/Home/Book/Commerce";
 import General from "./Components/Home/Book/General";
 import Science from "./Components/Home/Book/Science";
@@ -23,6 +24,7 @@ function App() {
           <Route path="commerce" element={<Commerce></Commerce>}></Route>
           <Route path="general" element={<General></General>}></Route>
         </Route>
+        <Route path="admissionForm" element={<AdmissionForm></AdmissionForm>}></Route>
         <Route path="dashboard" element={<Dashboard></Dashboard>}></Route>
         <Route path="community" element={<Community></Community>}></Route>
         <Route path="community" element={<About></About>}></Route>
