@@ -9,7 +9,7 @@ const Admission = () => {
                 <h1 className='text-xl  lg:text-5xl uppercase font-serif font-bold'> Admission going on</h1>
                 <h2 className='text-xl text-left lg:uppercase lg:mx-6 font-serif my-12 lg:mt-24  '>Most of the student don't get change because of the best guide line and mentors. so we believe Your deserve the best education</h2>
 
-                <button className='btn btn-primary lg:my-12 lg:btn-lg' >Admission now</button>
+                <a href='#course' className='btn btn-primary lg:my-12 lg:btn-lg' >Admission now</a>
             </div>
 
 

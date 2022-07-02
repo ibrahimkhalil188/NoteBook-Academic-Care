@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Science from './Science';
 import { BsArrowRight } from "react-icons/bs"
+import { Link } from 'react-router-dom';
 const Books = ({ group }) => {
     const [books, setBooks] = useState([])
     useEffect(() => {
@@ -18,7 +19,7 @@ const Books = ({ group }) => {
                     books?.slice(0, 3).map(book => <Science book={book}></Science>)
                 }
             </div>
-            <button className='btn btn-primary mt-4 absolute right-16'>See more <BsArrowRight className='text-xl ml-4 font-extrabold '></BsArrowRight></button>
+            <Link to='allBooks' className='btn btn-primary mt-4 absolute right-16'>See more <BsArrowRight className='text-xl ml-4 font-extrabold '></BsArrowRight></Link>
             <marquee direction="left" className='w-full mt-24' >
                 <h1 className='text-4xl text-green-600'> Here i will add notice and latest news</h1>
             </marquee>

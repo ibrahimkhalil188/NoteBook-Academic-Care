@@ -1,27 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import Admission from '../Components/Home/Admission';
-import Books from '../Components/Book/Books';
-import Course from '../Components/Home/Course';
-import HeroSection from '../Components/Home/HeroSection';
-import Success from '../Components/Home/Success';
-import { GiBookmarklet } from 'react-icons/gi';
-import { useState } from 'react';
-const Home = () => {
+import Science from './Science';
+
+const AllBooks = () => {
     const [group, setGroup] = useState("science")
+    const [books, setBooks] = useState([])
+    useEffect(() => {
+        fetch("/Books.json")
+            .then(res => res.json())
+            .then(data => setBooks(data))
+    }, [])
     return (
-        <div >
-            <HeroSection></HeroSection>
-            <Course></Course>
-            <Success></Success>
-            <Admission></Admission>
+        <div>
             <div>
                 <nav className='relative'>
                     <div className='justify-center'>
-                        <div>
-                            <GiBookmarklet className='text-8xl absolute top-[-20px] left-[20%] lg:left-[62%] rotate-12 '></GiBookmarklet>
-                            <h1 className='text-3xl lg:text-5xl  text-center my-8 uppercase font-serif '>Our books</h1>
-                        </div>
+
                     </div>
                     <div class="navbar justify-center">
                         <div class="navbar-center">
@@ -37,10 +31,13 @@ const Home = () => {
                 </nav>
                 <Outlet></Outlet>
             </div>
-            <Books group={group}></Books>
-
+            <div className='grid grid-cols-3 gap-5'>
+                {
+                    books?.map(book => <Science book={book}></Science>)
+                }
+            </div>
         </div>
     );
 };
 
-export default Home;
+export default AllBooks;

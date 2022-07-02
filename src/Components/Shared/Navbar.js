@@ -7,7 +7,7 @@ const Navbar = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="dashboard">Dashboard</Link></li>
             <li><Link to="community">Community</Link></li>
-            <li><Link to="books">Books</Link></li>
+            <li><Link to="allBooks">Books</Link></li>
             <li><Link to="about">About</Link></li>
             <li><Link to="login">Login</Link></li>
         </>
@@ -26,7 +26,7 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <Link to="/" class="btn btn-ghost normal-case text-xl">NAC</Link>
+                    <Link to="/" class="btn btn-ghost normal-case text-xl" title='Note book academic care'>NAC</Link>
 
                     <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 

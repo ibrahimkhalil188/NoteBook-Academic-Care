@@ -14,7 +14,6 @@ const Preview = () => {
                         <button class="btn btn-primary">Buy Now{id}</button>
                     </div>
                 </div>
-
             </div>
         </div>
     );
