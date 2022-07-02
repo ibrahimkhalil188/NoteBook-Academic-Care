@@ -19,10 +19,8 @@ const Books = ({ group }) => {
                     books?.slice(0, 3).map(book => <Science book={book}></Science>)
                 }
             </div>
-            <Link to='allBooks' className='btn btn-primary mt-4 absolute right-16'>See more <BsArrowRight className='text-xl ml-4 font-extrabold '></BsArrowRight></Link>
-            <marquee direction="left" className='w-full mt-24' >
-                <h1 className='text-4xl text-green-600'> Here i will add notice and latest news</h1>
-            </marquee>
+            <Link to='allBooks' className='text-primary font-bold text-2xl flex justify-center items-center mt-6 absolute right-16'>See more <BsArrowRight className='text-2xl ml-2 mt-2 font-extrabold '></BsArrowRight></Link>
+
         </div>
     );
 };

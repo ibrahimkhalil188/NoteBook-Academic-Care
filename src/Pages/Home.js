@@ -7,6 +7,7 @@ import HeroSection from '../Components/Home/HeroSection';
 import Success from '../Components/Home/Success';
 import { GiBookmarklet } from 'react-icons/gi';
 import { useState } from 'react';
+import SuccessSummary from '../Components/Home/SuccessSummary';
 const Home = () => {
     const [group, setGroup] = useState("science")
     return (
@@ -38,6 +39,7 @@ const Home = () => {
                 <Outlet></Outlet>
             </div>
             <Books group={group}></Books>
+            <SuccessSummary></SuccessSummary>
 
         </div>
     );

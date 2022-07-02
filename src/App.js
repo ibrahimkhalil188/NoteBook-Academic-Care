@@ -11,6 +11,7 @@ import About from "./Pages/About";
 import Community from "./Pages/Community/Community";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Home from "./Pages/Home";
+import Login from "./Pages/Login";
 
 
 
@@ -36,7 +37,9 @@ function App() {
         </Route>
         <Route path="community" element={<Community></Community>}></Route>
         <Route path="community" element={<About></About>}></Route>
+        <Route path="login" element={<Login></Login>}></Route>
       </Routes>
+
       <Footer></Footer>
     </div>
 
