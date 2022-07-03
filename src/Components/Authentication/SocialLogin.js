@@ -7,12 +7,9 @@ import Loading from '../Shared/Loading';
 
 const SocialLogin = () => {
     const navigate = useNavigate()
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, user, error] = useSignInWithGoogle(auth);
 
 
-    if (loading) {
-        return <Loading></Loading>
-    }
     if (error) {
         toast.error(error.message, { id: "Id" })
     }
@@ -21,8 +18,8 @@ const SocialLogin = () => {
         toast.success("Your created", { id: "id" })
     }
     return (
-        <div>
-            <button onClick={() => signInWithGoogle()} className='btn btn-primary'>Google
+        <div className='w-full mb-12'>
+            <button onClick={() => signInWithGoogle()} className='btn btn-primary w-[82%] ml-8'>Google
             </button>
 
         </div>
