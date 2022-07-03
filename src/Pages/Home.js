@@ -8,6 +8,7 @@ import Success from '../Components/Home/Success';
 import { GiBookmarklet } from 'react-icons/gi';
 import { useState } from 'react';
 import SuccessSummary from '../Components/Home/SuccessSummary';
+import ConfirmModal from '../Components/Shared/ConfirmModal';
 const Home = () => {
     const [group, setGroup] = useState("science")
     return (
@@ -40,7 +41,7 @@ const Home = () => {
             </div>
             <Books group={group}></Books>
             <SuccessSummary></SuccessSummary>
-
+            <ConfirmModal></ConfirmModal>
         </div>
     );
 };

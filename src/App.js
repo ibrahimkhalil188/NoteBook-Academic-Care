@@ -12,6 +12,7 @@ import Community from "./Pages/Community/Community";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
+import { Toaster } from 'react-hot-toast';
 
 
 
@@ -39,7 +40,10 @@ function App() {
         <Route path="community" element={<About></About>}></Route>
         <Route path="login" element={<Login></Login>}></Route>
       </Routes>
-
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+      />
       <Footer></Footer>
     </div>
 

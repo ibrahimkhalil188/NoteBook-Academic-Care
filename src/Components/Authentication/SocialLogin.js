@@ -1,33 +1,30 @@
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const SocialLogin = () => {
+    const navigate = useNavigate()
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
-    if (error) {
-        return (
-            <div>
-                <p>Error: {error.message}</p>
-            </div>
-        );
-    }
+
     if (loading) {
-        return <p>Loading...</p>;
+        return <Loading></Loading>
+    }
+    if (error) {
+        toast.error(error.message, { id: "Id" })
     }
     if (user) {
-        return (
-            <div>
-                <p>Signed In User: {user.email}</p>
-            </div>
-        );
+        navigate('/')
+        toast.success("Your created", { id: "id" })
     }
-
     return (
         <div>
+            <button onClick={() => signInWithGoogle()} className='btn btn-primary'>Google
+            </button>
 
-            <button onClick={() => signInWithGoogle()} className='btn btn-primary'>Google</button>
-            <Toaster />
         </div>
     );
 };

@@ -1,7 +1,16 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
+import ConfirmModal from './ConfirmModal';
 
 const Navbar = () => {
+    const [user, loading, error] = useAuthState(auth);
+
+    const handleSignOut = () => {
+        return <ConfirmModal></ConfirmModal>
+    }
     const navItem =
         <>
             <li><Link to="/">Home</Link></li>
@@ -9,7 +18,9 @@ const Navbar = () => {
             <li><Link to="community">Community</Link></li>
             <li><Link to="allBooks">Books</Link></li>
             <li><Link to="about">About</Link></li>
-            <li><Link to="login">Login</Link></li>
+            {
+                user ? <li><label for="my-modal-6">SignOut</label></li> : <li><Link to="login">Login</Link></li>
+            }
         </>
     return (
         <div className='text-white bg-[#021f5b] sticky top-0 border-b-2 border-[#0bc8ff] z-10'>

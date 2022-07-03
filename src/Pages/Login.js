@@ -2,8 +2,10 @@ import React from 'react';
 import SocialLogin from '../Components/Authentication/SocialLogin';
 
 const Login = () => {
+
     return (
-        <div>
+        <div className='h-screen '>
+            <h1>This is Login page</h1>
             <SocialLogin></SocialLogin>
         </div>
     );
