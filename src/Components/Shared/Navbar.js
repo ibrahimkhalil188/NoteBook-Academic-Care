@@ -1,16 +1,20 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
-import ConfirmModal from './ConfirmModal';
+import Loading from './Loading';
 
 const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
-
-    const handleSignOut = () => {
-        return <ConfirmModal></ConfirmModal>
+    if (loading) {
+        return <Loading></Loading>
     }
+    if (error) {
+        toast.error(error.message, { id: "id" })
+    }
+
     const navItem =
         <>
             <li><Link to="/">Home</Link></li>

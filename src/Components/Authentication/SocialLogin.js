@@ -7,9 +7,11 @@ import Loading from '../Shared/Loading';
 
 const SocialLogin = () => {
     const navigate = useNavigate()
-    const [signInWithGoogle, user, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
-
+    if (loading) {
+        return <Loading></Loading>
+    }
     if (error) {
         toast.error(error.message, { id: "Id" })
     }

@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import auth from '../../firebase.init';
-import { ImCross } from 'react-icons/im'
+
 const ConfirmModal = () => {
     const handleDelete = (TrueOrFalse) => {
         if (TrueOrFalse) {
@@ -17,7 +17,6 @@ const ConfirmModal = () => {
                     <div class="modal-action">
                         <label for="my-modal-6" class="btn btn-success">Close</label>
                         <label for="my-modal-6" class="btn btn-error" onClick={() => handleDelete(true)}>Yes</label>
-
                     </div>
                 </div>
             </div>

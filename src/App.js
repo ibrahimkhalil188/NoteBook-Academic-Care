@@ -13,6 +13,8 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import { Toaster } from 'react-hot-toast';
+import NotFound from "./Components/Shared/NotFound";
+import Register from "./Pages/Register";
 
 
 
@@ -36,14 +38,13 @@ function App() {
           <Route path="commerce" element={<Commerce></Commerce>}></Route>
           <Route path="general" element={<General></General>}></Route>
         </Route>
+        <Route path="registration" element={<Register></Register>}></Route>
         <Route path="community" element={<Community></Community>}></Route>
         <Route path="community" element={<About></About>}></Route>
         <Route path="login" element={<Login></Login>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
-      <Toaster
-        position="top-right"
-        reverseOrder={false}
-      />
+      <Toaster />
       <Footer></Footer>
     </div>
 

@@ -5,6 +5,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import Loading from '../Components/Shared/Loading';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 const Login = () => {
 
     const [email, setEmail] = useState('');
@@ -23,11 +24,7 @@ const Login = () => {
         return <Loading></Loading>
     }
     if (user) {
-        return (
-            <div>
-                <p>Signed In User: {user.email}</p>
-            </div>
-        );
+        return toast.success("Login success", { id: "userId" })
     }
 
     const handleSubmit = (e) => {
@@ -36,7 +33,7 @@ const Login = () => {
     }
     return (
         <div className="hero min-h-screen" style={{ backgroundImage: `url(${wave})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
-            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mt-6">
+            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mt-[-100px]">
                 <form onSubmit={(e) => handleSubmit(e)} class="card-body">
                     <h1 className='text-4xl text-center font-bold'>Login</h1>
                     <div class="form-control">
@@ -59,7 +56,7 @@ const Login = () => {
                     </div>
                 </form>
                 <div>
-                    <h1>Are you new here? Register now</h1>
+                    <h1 className='text-lg ml-12'>Are you new here? <Link to="/registration" className='text-blue-600 underline'>Register now</Link></h1>
                 </div>
                 <div class="divider">OR</div>
                 <SocialLogin></SocialLogin>
