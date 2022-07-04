@@ -11,7 +11,6 @@ const Books = ({ group }) => {
             .then(res => res.json())
             .then(data => setBooks(data))
     }, [])
-    console.log(books)
     return (
         <div>
             <div className='grid grid-cols-3 gap-5'>

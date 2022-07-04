@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
+import ConfirmModal from './ConfirmModal';
 import Loading from './Loading';
 
 const Navbar = () => {
@@ -54,6 +55,7 @@ const Navbar = () => {
                     </ul>
                 </div>
             </div>
+            <ConfirmModal></ConfirmModal>
         </div>
     );
 };

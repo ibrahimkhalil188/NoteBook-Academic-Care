@@ -5,7 +5,33 @@ import VisibilitySensor from 'react-visibility-sensor';
 
 const SuccessSummary = () => {
 
-    const number = [1600, 570, 1490, 455, 2444]
+    const number = [
+        {
+            id: 1,
+            name: "Medical",
+            number: 9678
+        },
+        {
+            id: 1,
+            name: "DU",
+            number: 16000
+        },
+        {
+            id: 1,
+            name: "RU",
+            number: 32000
+        },
+        {
+            id: 1,
+            name: "JU",
+            number: 23600
+        },
+        {
+            id: 1,
+            name: "CU",
+            number: 34000
+        },
+    ]
 
     return (
         <div className='mt-24 text-5xl text-center uppercase font-bold text-black'>
@@ -18,10 +44,11 @@ const SuccessSummary = () => {
                             <div className="content" />
                             <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
                                 {({ isVisible }) => (
-                                    <div className="text-4xl text-center">
-
-                                        {isVisible ? <CountUp end={n} /> : null}+
+                                    <div className="text-center">
+                                        <h1 className='text-4xl'>{isVisible ? <CountUp end={n.number} /> : null}+</h1>
+                                        <h1 className='text-xl'>{n.name}</h1>
                                     </div>
+
                                 )}
                             </VisibilitySensor>
                         </div>

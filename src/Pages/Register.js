@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../Components/Authentication/SocialLogin';
@@ -10,9 +10,13 @@ import wave from '../Assets/Image/loginwave.svg'
 const Register = () => {
 
     const navigate = useNavigate()
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confrimPassword, setConfirmPassword] = useState('');
+
+    const [updateProfile, updating, nameError] = useUpdateProfile(auth);
+
     const [
         createUserWithEmailAndPassword,
         user,
@@ -26,14 +30,19 @@ const Register = () => {
     if (loading) {
         return <Loading></Loading>
     }
+    if (updating) {
+        return <Loading></Loading>
+    }
     if (user) {
-        return (toast.success("Login success", { id: "userId" }), navigate('/'))
+        return (toast.success("Registration success", { id: "userId" }), navigate('/'), console.log(user))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         if (confrimPassword === password) {
-            createUserWithEmailAndPassword(email, password)
+            await createUserWithEmailAndPassword(email, password)
+            await updateProfile(name)
+            console.log(user)
         }
         else {
             toast.error("Password Not match")
@@ -41,10 +50,16 @@ const Register = () => {
 
     }
     return (
-        <div className="hero min-h-screen" style={{ backgroundImage: `url(${wave})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
-            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mt-[-100px]">
+        <div className=" hero" style={{ backgroundImage: `url(${wave})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
+            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
                 <form onSubmit={(e) => handleSubmit(e)} class="card-body">
                     <h1 className='text-4xl text-center font-bold'>Register</h1>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Your name</span>
+                        </label>
+                        <input type="text" placeholder="Name" class="input input-bordered" onChange={(e) => setName(e.target.value)} required />
+                    </div>
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Email</span>

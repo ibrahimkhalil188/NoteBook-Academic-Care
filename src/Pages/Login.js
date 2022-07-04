@@ -5,8 +5,9 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import Loading from '../Components/Shared/Loading';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Login = () => {
+    const navigate = useNavigate()
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -24,7 +25,7 @@ const Login = () => {
         return <Loading></Loading>
     }
     if (user) {
-        return toast.success("Login success", { id: "userId" })
+        return (toast.success("Login success", { id: "userId" }), navigate("/"))
     }
 
     const handleSubmit = (e) => {
