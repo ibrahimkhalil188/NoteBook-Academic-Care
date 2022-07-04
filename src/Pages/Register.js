@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../Components/Authentication/SocialLogin';
@@ -10,7 +10,7 @@ import wave from '../Assets/Image/loginwave.svg'
 const Register = () => {
 
     const navigate = useNavigate()
-    const [name, setName] = useState('')
+    const [displayName, setDisplayName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confrimPassword, setConfirmPassword] = useState('');
@@ -24,25 +24,23 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    if (error) {
+    if (error || nameError) {
         toast.error(error.message, { id: "Id" })
     }
-    if (loading) {
+    if (loading || updating) {
         return <Loading></Loading>
     }
-    if (updating) {
-        return <Loading></Loading>
-    }
+
     if (user) {
-        return (toast.success("Registration success", { id: "userId" }), navigate('/'), console.log(user))
+        return (toast.success("Registration success", { id: "userId" }), console.log(user))
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (confrimPassword === password) {
+
             await createUserWithEmailAndPassword(email, password)
-            await updateProfile(name)
-            console.log(user)
+            await updateProfile({ displayName: displayName })
         }
         else {
             toast.error("Password Not match")
@@ -58,7 +56,7 @@ const Register = () => {
                         <label class="label">
                             <span class="label-text">Your name</span>
                         </label>
-                        <input type="text" placeholder="Name" class="input input-bordered" onChange={(e) => setName(e.target.value)} required />
+                        <input type="text" placeholder="Name" class="input input-bordered" onChange={(e) => setDisplayName(e.target.value)} required />
                     </div>
                     <div class="form-control">
                         <label class="label">
